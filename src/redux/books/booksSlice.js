@@ -19,12 +19,12 @@ export default function bookReducer(state = initialState, action) {
     case ADD_BOOK:
       return {
         state,
-        Book: [state.Book, action.text],
+        book: [state.book, action.text],
       };
     case REMOVE_BOOK:
       return {
         state,
-        Book: state.Book.filter((Books) => Books !== action.text),
+        book: state.book.filter((books) => books !== action.text),
       };
     default:
       return state;
