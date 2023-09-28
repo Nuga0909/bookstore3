@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Book from './Books';
+import Book from './Book';
 import Form from './BooksForm';
 
 function BookList() {
