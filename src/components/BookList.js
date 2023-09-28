@@ -4,19 +4,21 @@ import Book from './Books';
 import Form from './BooksForm';
 
 function BookList() {
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.book);
+
   return (
-    <>
-      <ul>
-        {books.map((books) => (
-          <li key={books.key}>
-            {' '}
-            <Book title={books.title} author={books.author} />
+    <ul className="container">
+      {books.map((book) => (
+        <>
+          <li className="content" key={book.id}>
+            <Book title={book.title} author={book.author} id={book.id} />
           </li>
-        ))}
-      </ul>
+        </>
+      ))}
+
       <Form />
-    </>
+    </ul>
   );
 }
+
 export default BookList;
