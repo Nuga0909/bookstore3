@@ -1,32 +1,45 @@
-const ADD_BOOK = 'ADD_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 
-const initialState = {
-  Books: [],
-};
+const initialState = [
+  {
+    id: uuidv4(),
+    title: 'The Hunger Games',
+    genres: 'Action',
+    author: 'Suzanne Collins',
+    progres: 64,
+    chapter: 'Chapter 17: "A Lesson Learned"',
+  },
+  {
+    id: uuidv4(),
+    title: 'Dune',
+    genres: 'Fantasy',
+    author: 'Frank Herbert',
+    progres: 8,
+    chapter: 'Chapter 3: "A Lesson Learned"',
+  },
+  {
+    id: uuidv4(),
+    title: 'Capital in the Twenty-First Century',
+    genres: 'Economics',
+    author: 'Suzanne Collins',
+    progres: 0,
+    chapter: 'Introduction: "A Lesson Learned"',
+  },
+];
 
-export const addbook = (book) => ({
-  type: ADD_BOOK,
-  text: book,
+const slice = createSlice({
+  name: 'books',
+  initialState,
+  reducers: {
+    addBooks: (state, action) => [...state, action.payload],
+    removeBooks: (state, action) => {
+      const index = state.findIndex((book) => book.id === action.payload);
+      state.splice(index, 1);
+    },
+  },
 });
-export const removeBook = (book) => ({
-  type: REMOVE_BOOK,
-  text: book,
-});
 
-export default function bookReducer(state = initialState, action) {
-  switch (action.type) {
-    case ADD_BOOK:
-      return {
-        state,
-        book: [state.book, action.text],
-      };
-    case REMOVE_BOOK:
-      return {
-        state,
-        book: state.book.filter((books) => books !== action.text),
-      };
-    default:
-      return state;
-  }
-}
+export const { addBooks, removeBooks } = slice.actions;
+
+export default slice.reducer;

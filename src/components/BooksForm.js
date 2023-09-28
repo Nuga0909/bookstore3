@@ -1,23 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBooks } from '../redux/books/booksSlice';
 
 function Form() {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
+
+  const submit = (e) => {
+    e.preventDefault();
+    const bookContent = {
+      id: uuidv4(),
+      title,
+      author,
+    };
+    dispatch(addBooks(bookContent));
+    setTitle('');
+    setAuthor('');
+  };
   return (
-    <div>
-      <h1>ADD NEW BOOK</h1>
-      <div>
-        <form className=" form flex">
-          <input
-            className="book-input"
-            placeholder="Boot title"
-          />
-          <input
-            className="Author-input"
-            placeholder="Author"
-          />
-          <button type="button" className="button">ADD BOOK</button>
-        </form>
+    <form className="form-bar" onSubmit={submit}>
+      <h2>Add books</h2>
+      <div className="title-bar">
+        <input
+          type="text"
+          id="text"
+          placeholder="title-book"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </div>
-    </div>
+      <div className="author-bar">
+        <input
+          type="text"
+          id="text-author"
+          placeholder="Author-book"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+      </div>
+      <button type="submit" className="add-book">
+        Add Book
+      </button>
+    </form>
   );
 }
 
