@@ -10,10 +10,14 @@ const Categories = () => {
   };
 
   return (
-    <div className="status-container">
+    <div className="cat-p">
       <span>{message}</span>
       <br />
-      <button type="submit" onClick={handleCheckStatus}>
+      <button
+        type="button"
+        className="under-construction"
+        onClick={handleCheckStatus}
+      >
         Check status
       </button>
     </div>

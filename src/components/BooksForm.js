@@ -33,25 +33,36 @@ function Form() {
   };
 
   return (
-    <form className="FORM" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        required
-        value={state.title}
-        onChange={onChangeHandler}
-      />
-      <input
-        type="text"
-        id="author"
-        name="author"
-        required
-        value={state.author}
-        onChange={onChangeHandler}
-      />
-      <button type="submit">Add Book</button>
-    </form>
+    <div className="Add-container">
+      <h2 className="add-title">ADD NEW BOOK</h2>
+      <section>
+        <form className="add-book" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="title-input"
+            id="title"
+            placeholder="Add Book Title"
+            name="title"
+            required
+            value={state.title}
+            onChange={onChangeHandler}
+          />
+          <input
+            type="text"
+            id="author"
+            className="author-input"
+            name="author"
+            placeholder="Add Book Author"
+            required
+            value={state.author}
+            onChange={onChangeHandler}
+          />
+          <button className="add-button" type="submit">
+            ADD BOOK
+          </button>
+        </form>
+      </section>
+    </div>
   );
 }
 
