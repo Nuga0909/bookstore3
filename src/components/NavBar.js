@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 function NavBar() {
   return (
@@ -18,6 +20,9 @@ function NavBar() {
           </Link>
         </li>
       </ul>
+      <div className="circle">
+        <FontAwesomeIcon icon={faUser} style={{ color: '#0290ff' }} />
+      </div>
     </nav>
   );
 }
