@@ -123,6 +123,7 @@ body {
 .progress-container {
   display: flex;
   align-items: center;
+  margin-right: 5rem;
 }
 
 .circular-progress-container {
