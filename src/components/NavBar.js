@@ -8,13 +8,13 @@ function NavBar() {
         <li className="link">
           {' '}
           <Link className="Books" to="/">
-            Books
+            BOOKS
           </Link>
         </li>
         <li className="linked">
           {' '}
           <Link className="category" to="/Categories">
-            Category
+            CATEGORIES
           </Link>
         </li>
       </ul>

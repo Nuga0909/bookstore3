@@ -34,7 +34,7 @@ function Form() {
 
   return (
     <div className="Add-container">
-      <h2 className="add-title">Add Your Book</h2>
+      <h2 className="add-title">ADD NEW BOOK</h2>
       <section>
         <form className="add-book" onSubmit={handleSubmit}>
           <input
@@ -58,7 +58,7 @@ function Form() {
             onChange={onChangeHandler}
           />
           <button className="add-button" type="submit">
-            Add Book
+            ADD BOOK
           </button>
         </form>
       </section>
