@@ -50,6 +50,7 @@ body {
   background-color: #fff;
   border-radius: 4px;
   margin-left: 3rem;
+  margin-right: 3rem;
   border: 1px solid #e8e8e8;
   padding: 2rem;
 }
@@ -241,8 +242,7 @@ body {
 .create {
   height: 0.2rem;
   background-color: #f5f6f5;
-  width: 100%;
-  margin: 2.5rem 0 1.813rem;
+  margin: 2.5rem 3rem 1.813rem 3rem;
 }
 
 .Add-container .add-title {
@@ -286,6 +286,7 @@ body {
 }
 
 .add-button {
+  margin-right: 3rem;
   cursor: pointer;
   width: 20%;
   padding: 12px;
