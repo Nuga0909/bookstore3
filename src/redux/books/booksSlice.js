@@ -53,25 +53,25 @@ export const getAllBooks = createAsyncThunk('books/getAllBooks', async () => {
   return books;
 });
 
-export const addBookAPI = createAsyncThunk('book/addBookAPI', async (payload) => {
+export const addBookAPI = createAsyncThunk('book/addBookAPI', async (payload, thunkAPI) => {
   await axios.post(URL, payload);
-  return getAllBooks();
+  return thunkAPI.dispatch(getAllBooks());
 });
 
-export const removeBookAPI = createAsyncThunk('book/removeBookAPI', async (payload) => {
+export const removeBookAPI = createAsyncThunk('book/removeBookAPI', async (payload, thunkAPI) => {
   await axios.delete(`${URL}/${payload}`);
-  return getAllBooks();
+  return thunkAPI.dispatch(getAllBooks());
 });
 
 const bookSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    addBooks: (state, action) => [...state.localBooks, action.payload],
-    removeBooks: (state, action) => {
-      const index = state.localBooks.findIndex((book) => book.id === action.payload);
-      state.localBooks.splice(index, 1);
-    },
+    // addBooks: (state, action) => [...state.localBooks, action.payload],
+    // removeBooks: (state, action) => {
+    //   const index = state.localBooks.findIndex((book) => book.id === action.payload);
+    //   state.localBooks.splice(index, 1);
+    // },
   },
   extraReducers: {
     [getAllBooks.pending]: (state) => {
